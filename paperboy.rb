@@ -33,7 +33,7 @@ class Paperboy
       @earnings = 0.25 * houses_total
     else
       extra_houses = houses_total - quota
-      @earnings = 0.5 * extra_houses + 0.25 * quota
+      @earnings = 0.25 * quota + 0.5 * extra_houses 
     end
   end
 

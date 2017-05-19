@@ -15,7 +15,6 @@
 #
 # As a stretch exercise you can figure out how to ensure it still works if the above assumption isn't met!
 
-
 class Paperboy
 
   attr_accessor :name, :experience, :earnings

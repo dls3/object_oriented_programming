@@ -41,7 +41,6 @@ end
 savings = BankAccount.new(1000, 0.02)
 checkings = BankAccount.new(500, 0.05)
 
-
 puts savings.deposit(10)
 puts savings.withdraw(20)
 

@@ -20,10 +20,10 @@ class Paperboy
 
   attr_accessor :name, :experience, :earnings
 
- def initialize(name, experience, earnings,)
+ def initialize(name) #, experience, earnings)
    @name = name
-   @experience = experience
-   @earnings = earnings ## WHAT DOES READ ONLY MEAN??
+   @experience = 0
+   @earnings = 0
  end
 
  def quota
@@ -31,45 +31,36 @@ class Paperboy
    quota = @experience / 2 + 50
  end
 
-
  def deliver(start_address, end_address)
    # This method will take two house numbers and return the amount of money earned on this delivery as a floating point number.
    # It should also update the paperboy's experience!
    # Let's assume that the start_address is always a smaller number than the end_address
    houses_total = end_address - start_address
-   @experience = houses_total + experience
+   @experience = houses_total + @experience
     if houses_total < quota
       @earnings = 0.25 * houses_total
     else
       extra_houses = houses_total - quota
       @earnings = 0.5 * extra_houses + 0.25 * quota
     end
+  end
 
-
- end
-
-
- def report
- # This method should return a string about the paperboy's performance
- # e.g. "I'm Tommy, I've delivered 90 papers and I've earned $38.25 so far!
-
- end
-
+  def report
+  # This method should return a string about the paperboy's performance
+  # e.g. "I'm Tommy, I've delivered 90 papers and I've earned $38.25 so far!
+  "I'm #{@name}, I've delivered #{@experience} and I've earned $#{earnings} so far!"
+  end
 
 end
 
+tommy = Paperboy.new("Tommy")
 
+puts tommy.quota # => 50
+puts tommy.deliver(101, 160) # => 17.5
+puts tommy.earnings #=> 17.5
+puts tommy.report # => "I'm Tommy, I've delivered 60 papers and I've earned $17.5 so far!"
 
-
-
-# tommy = Paperboy.new("Tommy")
-#
-# tommy.quota # => 50
-# tommy.deliver(101, 160) # => 17.5
-# tommy.earnings #=> 17.5
-# tommy.report # => "I'm Tommy, I've delivered 60 papers and I've earned $17.5 so far!"
-#
-# tommy.quota # => 80
-# tommy.deliver(1, 75) # => 16.75
-# tommy.earnings #=> 34.25
-# tommy.report # => "I'm Tommy, I've been delivered 135 papers and I've earned $34.25 so far!"
+puts tommy.quota # => 80
+puts tommy.deliver(1, 75) # => 16.75
+puts tommy.earnings #=> 34.25
+puts tommy.report # => "I'm Tommy, I've been delivered 135 papers and I've earned $34.25 so far!"

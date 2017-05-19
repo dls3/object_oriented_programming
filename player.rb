@@ -16,7 +16,7 @@ class Player
   attr_accessor :gold_coins, :health_points, :lives
 
 
-  def initialize(gold_coins, health_points, lives)
+  def initialize   #(gold_coins, health_points, lives)
     @gold_coins = 5
     @health_points = 0
     @lives = 10
@@ -24,6 +24,7 @@ class Player
 
   def level_up
     @lives += 1
+    "You have #{@lives}"
   end
 
   def collect_treasure
@@ -36,17 +37,25 @@ class Player
   def do_battle(damage)
     @health_points -= damage
     if @health_points < 0
+      @lives -= 1
       @health_points = 10
     end
     if @lives == 0
       restart
     end
-  end
+    "You have #{@health_points} health points!"
+  end#
 
   def restart
     @gold_coins = 5
     @health_points = 0
     @lives = 10
+    "Restart: you now have #{@gold_coints} gold coins, #{@health_points} health points, and #{@lives} lives"
   end
-
 end
+
+player1 = Player.new
+
+puts player1.level_up
+puts player1.do_battle(3)
+puts player1.restart

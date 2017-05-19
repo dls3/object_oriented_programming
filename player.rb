@@ -29,7 +29,7 @@ class Player
   def collect_treasure
       @gold_coins += 1
     if @gold_coins % 10 == 0
-      level_up   ###HOW TO CALL THAT METHOD??
+      level_up
     end
   end
 
@@ -37,8 +37,9 @@ class Player
     @health_points -= damage
     if @health_points < 0
       @health_points = 10
+    end
     if @lives == 0
-      restart    ###HOW TO CALL THAT METHOD??
+      restart
     end
   end
 

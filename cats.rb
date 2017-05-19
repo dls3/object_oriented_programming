@@ -25,16 +25,16 @@ class Cat
 
   def eats_at
     if meal_time == 0
-      "#{@name} eats at 12AM"
+      "12AM"
     elsif meal_time < 12
-      "#{@name} eats at #{@meal_time}AM"
+      "#{@meal_time}AM"
     elsif meal_time > 12
-     "#{@name} eats at #{@meal_time - 12}PM"
+     "#{@meal_time - 12}PM"
     end
   end
 
   def meow
-    "My name is #{@name} and I eat #{@preferred_food} at #{@meal_time}"
+    "My name is #{@name} and I eat #{@preferred_food} at #{eats_at}"
   end
 
 end

@@ -15,6 +15,8 @@
 
 class Cat
 
+  attr_accessor :name, :preferred_food, :meal_time
+
   def initialize(name, preferred_food, meal_time)
     @name = name
     @preferred_food  = preferred_food
@@ -37,11 +39,9 @@ class Cat
 
 end
 
-
 cat1 = Cat.new('George', 'kibble', 3)
 cat2 = Cat.new('Paul', 'meowmix', 18)
 cat3 = Cat.new('Ringo', 'beef', 0)
-
 
 puts cat1.meow
 puts cat2.meow

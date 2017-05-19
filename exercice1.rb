@@ -20,16 +20,16 @@ class BankAccount
   def show_balance
     "Your balance is #{@balance}."
   end
-
-  # def deposit(deposit_amount)
-  #   @balance += deposit_amount
-  #   "Deposited $#{deposit_amount}. Your new balance is $#{@balance}."
-  # end
   #
-  # def withdraw(withdraw_amount)
-  #   @balance -= withdraw_amount
-  #   "Withdrew $#{withdraw}. Your new balance is $#{@balance}."
-  # end
+  def deposit(deposit_amount)
+    @balance = @balance + deposit_amount
+    "Deposited $#{deposit_amount}. Your new balance is $#{@balance}."
+  end
+
+  def withdraw(withdraw_amount)
+    @balance = @balance - withdraw_amount
+    "Withdrew $#{withdraw}. Your new balance is $#{@balance}."
+  end
 
   def gain_interest
     @balance *= @interest_rate + 1
@@ -40,6 +40,8 @@ end
 
 savings = BankAccount.new(1000, 0.02)
 checkings = BankAccount.new(500, 0.05)
+
+
 
 # puts savings.inspect
 # puts checkings.inspect

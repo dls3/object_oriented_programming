@@ -10,7 +10,7 @@
 
 class Paperboy
 
-  attr_reader :earnings
+  attr_reader :earnings    # return career earnings
   attr_accessor :name, :experience
 
  def initialize(name) #, experience, earnings)
@@ -24,7 +24,7 @@ class Paperboy
    quota = @experience / 2 + 50
  end
 
- def deliver(start_address, end_address)
+ def deliver(start_address, end_address)  # return today's earnings
    # This method will take two house numbers and return the amount of money earned on this delivery as a floating point number.
    # It should also update the paperboy's experience!
    # Let's assume that the start_address is always a smaller number than the end_address
@@ -42,7 +42,7 @@ class Paperboy
    end
    @experience += houses_total
    @earnings += today_earnings
-   return @earnings
+   return today_earnings
 
   end
 

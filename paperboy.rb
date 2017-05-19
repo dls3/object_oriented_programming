@@ -34,17 +34,19 @@ class Paperboy
    # their quota, they lose $2.
 
    houses_total = end_address - start_address + 1
-   @experience += houses_total
+   today_earnings = 0
    if houses_total < quota
-     @earnings = 0.25 * houses_total - 2
+     today_earnings = 0.25 * houses_total - 2
    elsif
-     @earnings = 0.25 * quota + 0.5 * (houses_total - quota)
+     today_earnings = 0.25 * quota + 0.5 * (houses_total - quota)
    end
+   @experience += houses_total
+   @earnings += today_earnings
+   return @earnings
+
   end
 
   def report
-  # This method should return a string about the paperboy's performance
-  # e.g. "I'm Tommy, I've delivered 90 papers and I've earned $38.25 so far!
   "I'm #{@name}, I've delivered #{@experience} and I've earned $#{@earnings} so far!"
   end
 

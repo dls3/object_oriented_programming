@@ -1,10 +1,3 @@
-# Each paperboy should have several attributes:
-#
-# Name
-# Experience (the number of papers they've delivered)
-# Earnings (amount of money they've earned)
-
-# This needs to be read-only!
 # Every day, each paperboy is given a house number to start at and a house number to finish at.
 # They get paid $0.25 for every paper they deliver and $0.50 for every paper over their quota. If at the end of the day they haven't met
 # their quota, they lose $2.

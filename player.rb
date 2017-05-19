@@ -15,7 +15,6 @@ class Player
 
   attr_accessor :gold_coins, :health_points, :lives
 
-
   def initialize   #(gold_coins, health_points, lives)
     @gold_coins = 5
     @health_points = 0

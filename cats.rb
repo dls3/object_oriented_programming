@@ -36,7 +36,6 @@ class Cat
   def meow
     "My name is #{@name} and I eat #{@preferred_food} at #{eats_at}"
   end
-
 end
 
 cat1 = Cat.new('George', 'kibble', 3)

@@ -10,7 +10,8 @@
 
 class Paperboy
 
-  attr_accessor :name, :experience, :earnings
+  attr_reader :earnings
+  attr_accessor :name, :experience
 
  def initialize(name) #, experience, earnings)
    @name = name
@@ -27,20 +28,24 @@ class Paperboy
    # This method will take two house numbers and return the amount of money earned on this delivery as a floating point number.
    # It should also update the paperboy's experience!
    # Let's assume that the start_address is always a smaller number than the end_address
-   houses_total = end_address - start_address
-   @experience = houses_total + @experience
-    if houses_total < quota
-      @earnings = 0.25 * houses_total
-    else
-      extra_houses = houses_total - quota
-      @earnings = 0.25 * quota + 0.5 * extra_houses 
-    end
+
+   # Every day, each paperboy is given a house number to start at and a house number to finish at.
+   # They get paid $0.25 for every paper they deliver and $0.50 for every paper over their quota. If at the end of the day they haven't met
+   # their quota, they lose $2.
+
+   houses_total = end_address - start_address + 1
+   @experience += houses_total
+   if houses_total < quota
+     @earnings = 0.25 * houses_total - 2
+   elsif
+     @earnings = 0.25 * quota + 0.5 * (houses_total - quota)
+   end
   end
 
   def report
   # This method should return a string about the paperboy's performance
   # e.g. "I'm Tommy, I've delivered 90 papers and I've earned $38.25 so far!
-  "I'm #{@name}, I've delivered #{@experience} and I've earned $#{earnings} so far!"
+  "I'm #{@name}, I've delivered #{@experience} and I've earned $#{@earnings} so far!"
   end
 
 end
